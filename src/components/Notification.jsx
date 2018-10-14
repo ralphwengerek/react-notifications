@@ -5,11 +5,11 @@ import Avatar from './Avatar';
 const Notification = (notification) => {
 
     const isLike = notification.type === "Like";
-    
+
     return (
-            isLike
-                ? <LikeNotification {...notification}></LikeNotification>
-                : <CommentNotification {...notification}></CommentNotification>
+        isLike
+            ? <LikeNotification {...notification}></LikeNotification>
+            : <CommentNotification {...notification}></CommentNotification>
     );
 }
 
@@ -21,7 +21,9 @@ const LikeNotification = ({ post, likes }) => {
     return (
         <div className="notification">
             <Avatar image={first.id}></Avatar>
-            <span><a href={post.id} >{users}</a> liked <strong>your post</strong> : "{post.title}"</span>
+            <div className="notification-content">
+                <a href={post.id} >{users}</a> liked <strong>your post</strong> : "{post.title}"
+            </div>
         </div>
     );
 
@@ -35,7 +37,9 @@ const CommentNotification = ({ post, comments }) => {
     return (
         <div className="notification">
             <Avatar image={first.id}></Avatar>
-            <span><a href={post.id} >{users}</a> commented on <strong>your post</strong> : {comments.length > 1 ? post.text : first.commentText}</span>
+            <div className="notification-content">
+                <a href={post.id} >{users}</a> commented on <strong>your post</strong> : "{comments.length >= 1 ? post.title : first.commentText}"
+            </div>
         </div>
     );
 

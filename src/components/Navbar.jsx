@@ -1,12 +1,12 @@
 import React from 'react';
 import './Navbar.css';
-import notification from '../bell-regular.svg';
+import { ReactComponent as Notification } from '../bell-regular.svg';
 
 const Navbar = (props) => {
     return (
         <nav className="Navbar">
             {props.children}
-            <img src={notification} onClick={props.onNotificationClick} className="notification-toggle" alt="Toggle notifications" />
+            <Notification className="notification-toggle" onClick={props.onNotificationClick} />
         </nav>
     );
 };

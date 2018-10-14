@@ -14,7 +14,9 @@ class Notifications extends React.Component {
     componentDidMount() {
         fetch('http://www.mocky.io/v2/5b4315f12e00004c002230c3')
             .then(response => response.json())
-            .then(data => this.setState({ notifications: data }));
+            .then(data => {this.setState({ notifications: data });
+        console.log(data);
+        });
     }
 
     render() {
