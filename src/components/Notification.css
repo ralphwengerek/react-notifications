@@ -1,0 +1,67 @@
+ul.notification-container {
+    padding: 5px;
+    max-width: 360px;
+    font-size: 13px;
+    box-shadow: 1px 1px 6px 0px #88888882;
+    position: absolute;
+    right: 50px;
+    top:20px;
+}
+
+ul.notification-container::before {
+    top: 1px;
+    right: 50px;
+    content: " ";
+    height: 12px;
+    width: 12px;
+    position: absolute;
+    pointer-events: none;
+    background: white;
+    transform: rotate(45deg);
+}
+
+ul.notification-container li {
+    list-style: none;
+    border-bottom:1px solid #88888882;
+}
+ul.notification-container li:last-child {
+    list-style: none;
+    border-bottom:none;
+}
+
+.notification{ 
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align:left;
+   }
+
+   .notification img {
+     margin:7px 5px 7px 0px;
+   }
+
+   .notification span{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+   }
+
+   .notification span a {
+    color: #49659F;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+@media only screen and (max-width: 600px) {
+    ul.notification-container {
+        right: auto;
+        max-width: max-content;
+
+    }
+
+    ul.notification-container::before {
+        right: 19px;
+    }
+}
