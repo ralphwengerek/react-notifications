@@ -3,37 +3,19 @@ import React from 'react';
 import Notification from './Notification';
 import './Notification.css';
 
-class Notifications extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            notifications: [],
-        };
-    }
+const Notifications = (props) => {
+    const { notifications } = props;
 
-    componentDidMount() {
-        fetch('http://www.mocky.io/v2/5b4315f12e00004c002230c3')
-            .then(response => response.json())
-            .then(data => {this.setState({ notifications: data });
-        console.log(data);
-        });
-    }
-
-    render() {
-        const { notifications } = this.state;
-       
-        if (this.props.isOpen)
-        return (
-            <ul className="notification-container">
-                {notifications.map((notification, index) =>
-                    <li key={index}>
-                        <Notification {...notification} ></Notification>
-                    </li>
-                )}
-            </ul>
-        )
-        else return null;
-    }
+    return (props.isOpen ?
+        <ul className="notification-container">
+            {notifications.map((notification, index) =>
+                <li key={index}>
+                    <Notification {...notification} ></Notification>
+                </li>
+            )}
+        </ul>
+        : null)
 }
+
 
 export default Notifications;
